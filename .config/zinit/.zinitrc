@@ -1,0 +1,4 @@
+zinit load zdharma-continuum/fast-syntax-highlighting
+zinit load zsh-users/zsh-autosuggestions
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zinit load sindresorhus/pure
