@@ -13,8 +13,6 @@ return packer.startup(function(use)
 
   use 'neovim/nvim-lspconfig'
 
-  -- use 'ful1e5/onedark.nvim'
-
   use 'projekt0n/github-nvim-theme'
 
   use 'jose-elias-alvarez/null-ls.nvim'
@@ -35,8 +33,10 @@ return packer.startup(function(use)
 
   use 'tpope/vim-fugitive'
 
-  use 'ellisonleao/glow.nvim'
+  use { 'ellisonleao/glow.nvim', cmd = { 'Glow' } }
 
   use { 'goolord/alpha-nvim', requires = 'kyazdani42/nvim-web-devicons' }
+
+  use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }
 
 end)
