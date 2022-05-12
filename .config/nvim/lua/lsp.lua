@@ -98,7 +98,7 @@ lspconfig['pyright'].setup{
   },
 }
 
-local path_to_elixirls = vim.fn.expand("~/.config/nvim/.lsp-installs/elixir-ls/release/language_server.sh")
+local path_to_elixirls = vim.fn.expand("~/.local/share/nvim/elixir-ls/language_server.sh")
 
 lspconfig['elixirls'].setup{
   cmd = {path_to_elixirls},

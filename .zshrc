@@ -1,7 +1,7 @@
 export CLICOLOR=1
 export LSCOLORS=fxxxxxxxxxxxxxxxxxxxxx
 
-export PATH="$HOME/code/go:$PATH"
+export PATH="$HOME/code/go/bin:$PATH"
 export PATH="$HOME/code/bin:$PATH"
 
 cdl () {
@@ -20,6 +20,7 @@ alias c="clear"
 alias cl="clear && ls"
 
 alias v="nvim"
+alias y="yarn"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -40,3 +41,5 @@ autoload -Uz _zinit
 ### End of Zinit's installer chunk
 
 source ~/.config/zinit/.zinitrc
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

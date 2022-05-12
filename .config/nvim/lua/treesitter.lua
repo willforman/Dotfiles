@@ -1,5 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   -- Install languages synchronously (only applied to `ensure_installed`)
+  ensure_installed = { "c", "lua", "rust", "elixir", "typescript", "go", "java"},
   sync_install = false,
 
   highlight = {
