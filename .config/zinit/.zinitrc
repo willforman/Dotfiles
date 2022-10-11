@@ -5,3 +5,6 @@ zinit load zsh-users/zsh-autosuggestions
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit load sindresorhus/pure
 zstyle :prompt:pure:path color cyan
+
+zinit ice lucid wait"0a" from"gh-r" as"program" atload'eval "$(mcfly init zsh)"' 
+zinit light cantino/mcfly

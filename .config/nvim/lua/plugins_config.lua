@@ -4,6 +4,7 @@ return packer.startup(function(use)
 
   use 'wbthomason/packer.nvim'
 
+  use 'kyazdani42/nvim-web-devicons'
   use 'nvim-treesitter/nvim-treesitter'
 
   use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
@@ -35,10 +36,19 @@ return packer.startup(function(use)
 
   use { 'ellisonleao/glow.nvim', cmd = { 'Glow' } }
 
+  use 'kyazdani42/nvim-web-devicons'
+
   use { 'goolord/alpha-nvim', requires = 'kyazdani42/nvim-web-devicons' }
 
   use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }
 
   use 'mfussenegger/nvim-dap'
+
+  use 'folke/zen-mode.nvim'
+
+  use {
+  'https://codeberg.org/esensar/nvim-dev-container',
+  requires = { 'nvim-treesitter/nvim-treesitter' }
+}
 
 end)

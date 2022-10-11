@@ -24,6 +24,11 @@ alias y="yarn"
 
 alias sshk="kitty +kitten ssh"
 
+# Zsh history
+setopt HIST_IGNORE_ALL_DUPS
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -45,3 +50,9 @@ autoload -Uz _zinit
 source ~/.config/zinit/.zinitrc
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/willforman/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/willforman/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/willforman/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/willforman/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
