@@ -36,8 +36,6 @@ return packer.startup(function(use)
 
   use { 'ellisonleao/glow.nvim', cmd = { 'Glow' } }
 
-  use 'kyazdani42/nvim-web-devicons'
-
   use { 'goolord/alpha-nvim', requires = 'kyazdani42/nvim-web-devicons' }
 
   use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }
