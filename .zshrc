@@ -26,8 +26,11 @@ alias sshk="kitty +kitten ssh"
 
 # Zsh history
 setopt HIST_IGNORE_ALL_DUPS
+setopt INC_APPEND_HISTORY
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
+export SAVEHIST=1000000000
+export HISTFILE=~/.zsh_history
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
