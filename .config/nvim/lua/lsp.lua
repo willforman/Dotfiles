@@ -51,57 +51,16 @@ cmp.setup({
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-lspconfig['tsserver'].setup{
-  capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
-  end,
-  flags = {
-    debounce_text_changes = 150,
-  }
-}
+local ls_list = {'sumneko_lua', 'tsserver', 'eslint', 'pyright', 'gopls', 'rust_analyzer', 'svelte', 'html', 'cssls'}
 
-lspconfig['eslint'].setup{
-  capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
-  end,
-  flags = {
-    debounce_text_changes = 150,
-  }
-}
-
-lspconfig['sumneko_lua'].setup{
-  capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-  end,
-  flags = {
-    debounce_text_changes = 150,
-  },
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { 'vim', 'use' }
-      }
+for _, lsp in ipairs(ls_list) do
+  lspconfig[lsp].setup{
+    capabilities = capabilities,
+    on_attach = on_attach
     }
-  }
-}
-
-lspconfig['pyright'].setup{
-  capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-  end,
-  flags = {
-    debounce_text_changes = 150,
-  },
-}
+end
 
 local path_to_elixirls = vim.fn.expand("~/.local/share/nvim/elixir-ls/language_server.sh")
 
@@ -111,71 +70,7 @@ lspconfig['elixirls'].setup{
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)
   end,
-  flags = {
-    debounce_text_changes = 150,
-  },
   settings = {
     fetchDeps = false
   }
-}
-
-lspconfig['gopls'].setup{
-  capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-  end,
-  flags = {
-    debounce_text_changes = 150,
-  },
-}
-
-lspconfig['rust_analyzer'].setup{
-  capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-  end,
-  flags = {
-    debounce_text_changes = 150,
-  },
-}
-
-lspconfig['svelte'].setup{
-  capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-  end,
-  flags = {
-    debounce_text_changes = 150,
-  },
-}
-
-lspconfig['zls'].setup{
-  capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-  end,
-  flags = {
-    debounce_text_changes = 150,
-  },
-}
-
-lspconfig['html'].setup{
-  capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
-  end,
-  flags = {
-    debounce_text_changes = 150,
-  },
-}
-
-lspconfig['cssls'].setup{
-  capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-  end,
-  flags = {
-    debounce_text_changes = 150,
-  },
 }
