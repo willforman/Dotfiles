@@ -7,7 +7,6 @@ vim.opt.autoindent = true
 vim.opt.number = true
 vim.opt.autoindent = true
 
-require('init')
 require('plugins')
 require('lsp')
 require('theme')
