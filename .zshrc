@@ -4,23 +4,10 @@ export LSCOLORS=fxxxxxxxxxxxxxxxxxxxxx
 export PATH="$HOME/code/go/bin:$PATH"
 export PATH="$HOME/code/bin:$PATH"
 
-cdl () {
-  builtin cd "$@" && ls
-}
-
-cdlc () {
-  builtin cd "$@" && clear && ls
-}
-
-mcd () {
-  builtin mkdir "$1" && cd "$1"
-}
-
 alias c="clear"
-alias cl="clear && ls"
-
 alias v="nvim"
 alias y="yarn"
+alias g="git"
 
 alias sshk="kitty +kitten ssh"
 
@@ -53,9 +40,3 @@ autoload -Uz _zinit
 source ~/.config/zinit/.zinitrc
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/willforman/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/willforman/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/willforman/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/willforman/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
