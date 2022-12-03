@@ -9,10 +9,8 @@ vim.opt.autoindent = true
 
 require('plugins')
 require('lsp')
-require('theme')
 require('treesitter')
+require('setup_other_plugins')
 require('formatter')
-require('autopairs')
-require('comments')
-require('files')
+require('telescope_')
 require('disable_builtins')
