@@ -53,24 +53,29 @@ cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex 
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-local ls_list = {'sumneko_lua', 'tsserver', 'eslint', 'pyright', 'gopls', 'rust_analyzer', 'svelte', 'html', 'cssls'}
 
-for _, lsp in ipairs(ls_list) do
-  lspconfig[lsp].setup{
-    capabilities = capabilities,
-    on_attach = on_attach
+
+local ls_names = {'sumneko_lua', 'tsserver', 'eslint', 'pyright', 'gopls', 'rust_analyzer', 'svelte', 'html', 'cssls', 'elixirls'}
+
+-- If we want to add settings to any lsps, add them like this
+local ls_settings = {}
+ls_settings['sumneko_lua'] = {
+  Lua = {
+    diagnostics = {
+      globals = {'vim'},
     }
-end
-
-local path_to_elixirls = vim.fn.expand("~/.local/share/nvim/elixir-ls/language_server.sh")
-
-lspconfig['elixirls'].setup{
-  cmd = {path_to_elixirls},
-  capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-  end,
-  settings = {
-    fetchDeps = false
   }
 }
+
+-- If we want to add a custom cmd to any lsps, add them like this
+local ls_cmd = {}
+ls_cmd['elixirls'] = { vim.fn.expand("~/.local/share/nvim/elixir-ls/language_server.sh") }
+
+for _, name in ipairs(ls_names) do
+  lspconfig[name].setup{
+    capabilities = capabilities,
+    on_attach = on_attach,
+    cmd = ls_cmd[name],
+    settings = ls_settings[name]
+  }
+end

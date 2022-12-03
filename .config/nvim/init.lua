@@ -8,8 +8,7 @@ vim.opt.number = true
 vim.opt.autoindent = true
 
 require('init')
-require('plugins_init')
-require('plugins_config')
+require('plugins')
 require('lsp')
 require('theme')
 require('treesitter')
