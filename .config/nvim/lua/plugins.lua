@@ -1,73 +1,53 @@
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "--single-branch",
+    "https://github.com/folke/lazy.nvim.git",
+    lazypath,
+  })
 end
+vim.opt.runtimepath:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
+require('lazy').setup({
+  'kyazdani42/nvim-web-devicons',
 
-local packer = require('packer')
+  { 'nvim-treesitter/nvim-treesitter', build=':TSUpdate' },
 
--- Have packer use a popup window
-packer.init({
-    display = {
-      open_fn = function()
-        return require('packer.util').float({ border = 'single' })
-      end
-    }
-  }
-)
+  { 'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim', } },
+  { 'nvim-telescope/telescope-file-browser.nvim', dependencies = { 'nvim-telescope/telescope.nvim', } },
 
-return packer.startup(function(use)
+  { 'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons' } },
 
-  use 'wbthomason/packer.nvim'
+  'neovim/nvim-lspconfig',
 
-  use 'kyazdani42/nvim-web-devicons'
-  use { 'nvim-treesitter/nvim-treesitter', run=':TSUpdate' }
+  'projekt0n/github-nvim-theme',
 
-  use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
-  use { 'nvim-telescope/telescope-file-browser.nvim', requires = 'nvim-telescope/telescope.nvim' }
+  'jose-elias-alvarez/null-ls.nvim',
 
-  use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }}
+  { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
+  'tpope/vim-fugitive',
 
-  use 'neovim/nvim-lspconfig'
+  'hrsh7th/nvim-cmp',
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-nvim-lsp-signature-help',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-cmdline',
 
-  use 'projekt0n/github-nvim-theme'
+  'L3MON4D3/LuaSnip',
+  'saadparwaiz1/cmp_luasnip',
 
-  use 'jose-elias-alvarez/null-ls.nvim'
+  'windwp/nvim-autopairs',
+  'windwp/nvim-ts-autotag',
 
-  use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
+  'numToStr/Comment.nvim',
 
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-nvim-lsp-signature-help'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-cmdline'
+  { 'ellisonleao/glow.nvim', cmd = { 'Glow' } },
 
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
+  { 'goolord/alpha-nvim', dependencies = { 'kyazdani42/nvim-web-devicons' } },
 
-  use 'windwp/nvim-autopairs'
-  use 'windwp/nvim-ts-autotag'
-
-  use 'numToStr/Comment.nvim'
-
-  use 'tpope/vim-fugitive'
-
-  use { 'ellisonleao/glow.nvim', cmd = { 'Glow' } }
-
-  use { 'goolord/alpha-nvim', requires = 'kyazdani42/nvim-web-devicons' }
-
-  use { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } }
-
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-
-end)
+  { 'dstein64/vim-startuptime', cmd = { 'StartupTime' } },
+})
