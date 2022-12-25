@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   -- Install languages synchronously (only applied to `ensure_installed`)
-  ensure_installed = { "c", "lua", "rust", "elixir", "typescript", "go", "java", "python" },
+  ensure_installed = { "c", "lua", "rust", "elixir", "typescript", "go", "java", "python", "tsx" },
   sync_install = false,
 
   highlight = {
@@ -16,4 +16,7 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+  autotag = {
+    enable = true,
+  }
 }

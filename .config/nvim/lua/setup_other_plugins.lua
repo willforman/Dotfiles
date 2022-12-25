@@ -1,5 +1,4 @@
 require('nvim-autopairs').setup {}
-require('nvim-ts-autotag').setup()
 
 require('Comment').setup()
 
@@ -13,4 +12,4 @@ require('lualine').setup {
 
 require('gitsigns').setup {}
 
-require('alpha').setup( require'alpha.themes.startify'.config)
+require('alpha').setup(require'alpha.themes.startify'.config)
