@@ -10,4 +10,8 @@ function M.config()
   })
 end
 
+function M.init()
+  vim.keymap.set('n', '<leader>e', '<cmd>TroubleToggle<cr>', { desc = 'Toggle Errors' })
+end
+
 return M
