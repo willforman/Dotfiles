@@ -18,10 +18,10 @@ function M.init()
   -- local in_config = vim.loop.cwd == vim.call('expand', '~/.config')
   local in_config_dir = string_utils.starts_with(vim.loop.cwd(), vim.call('expand', '~/.config'))
   if in_config_dir then
-    cmd = cmd ..
-      ' --use-config-file ~/.config/yadm/lazygit.yml' ..
-      ' --git-dir ~/.local/share/yadm/repo.git' ..
-      ' --work-tree ~'
+    cmd = 'lazygit \z
+      --use-config-file ~/.config/yadm/lazygit.yml \z
+      --git-dir ~/.local/share/yadm/repo.git \z
+      --work-tree ~'
   end
   local lazygit = Terminal:new({
     cmd = cmd,
