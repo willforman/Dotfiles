@@ -12,7 +12,12 @@ end
 
 function M.init()
   local Terminal  = require('toggleterm.terminal').Terminal
-  local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+  local lazygit = Terminal:new({
+    cmd = "lazygit",
+    hidden = true,
+    dir = "git_dir",
+    direction = "float"
+  })
 
   local function lazygit_toggle()
     lazygit:toggle()
