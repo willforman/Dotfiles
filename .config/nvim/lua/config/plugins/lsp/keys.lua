@@ -1,6 +1,6 @@
 local M = { }
 
-function M.lsp_on_attach(_, bufnr)
+function M.init(_, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   -- Mappings.
   local opts = { noremap=true, silent=true }
