@@ -1,4 +1,3 @@
-
 local M = {
   'mfussenegger/nvim-dap'
 }
@@ -17,6 +16,6 @@ function M.init()
       t = { dap.step_out, 'Step Out' },
     }
   }, { prefix = '<leader>' })
-  end
+end
 
 return M

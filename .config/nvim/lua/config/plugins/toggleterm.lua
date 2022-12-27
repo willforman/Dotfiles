@@ -2,6 +2,7 @@ local string_utils = require('utils.string')
 
 local M = {
   'akinsho/nvim-toggleterm.lua',
+  tag = '*',
 }
 
 function M.config()

@@ -1,6 +1,7 @@
 local M = {
   'lewis6991/gitsigns.nvim',
-  event = 'BufReadPre'
+  tag = 'release',
+  event = 'BufReadPre',
 }
 
 function M.config()
