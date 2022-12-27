@@ -11,7 +11,7 @@ function M.config()
 end
 
 function M.init()
-  vim.keymap.set('n', '<leader>e', '<cmd>TroubleToggle<cr>', { desc = 'Toggle Errors' })
+  vim.keymap.set('n', '<leader>oe', '<cmd>TroubleToggle<cr>', { desc = 'Open Trouble' })
 end
 
 return M

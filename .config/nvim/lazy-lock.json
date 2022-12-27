@@ -18,6 +18,7 @@
   "null-ls.nvim": { "branch": "main", "commit": "b26851b3e7ac1c0c85666f8a74e36aef2acb89c6" },
   "nvim-autopairs": { "branch": "master", "commit": "03580d758231956d33c8dd91e2be195106a79fa4" },
   "nvim-cmp": { "branch": "main", "commit": "d09b0c396aaa078cdfe78316ec06940971136e85" },
+  "nvim-dap": { "branch": "master", "commit": "6f2ea9e33b48a51849ec93c6c38148a5372018e4" },
   "nvim-toggleterm.lua": { "branch": "main", "commit": "b02a1674bd0010d7982b056fd3df4f717ff8a57a" },
   "nvim-treesitter": { "branch": "master", "commit": "7c9ddb72d198d45895d73bc7495e1b7e9627f6ca" },
   "nvim-ts-autotag": { "branch": "main", "commit": "fdefe46c6807441460f11f11a167a2baf8e4534b" },

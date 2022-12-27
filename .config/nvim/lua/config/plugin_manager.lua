@@ -28,4 +28,4 @@ require('lazy').setup('config.plugins', {
   },
 })
 
-vim.keymap.set('n', '<leader>l', '<cmd>:Lazy<cr>')
+vim.keymap.set('n', '<leader>ol', '<cmd>:Lazy<cr>', { desc = 'Open Lazy' })

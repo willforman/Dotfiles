@@ -34,7 +34,7 @@ function M.init()
     lazygit:toggle()
   end
 
-  vim.keymap.set('n', '<leader>g', lazygit_toggle)
+  vim.keymap.set('n', '<leader>og', lazygit_toggle, { desc = 'Open Lazygit' })
 end
 
 
